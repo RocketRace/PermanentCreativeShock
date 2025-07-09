@@ -55,7 +55,7 @@ namespace PermanentCreativeShock
 					{
 						highestLihzahrdBrickY = y;
 					}
-					if (tile.LiquidAmount > 0 && tile.LiquidType == LiquidID.Shimmer && y > highestShimmerY)
+					if (tile.LiquidAmount > 0 && tile.LiquidType == LiquidID.Shimmer && y < highestShimmerY)
 					{
 						highestShimmerY = y;
 					}
@@ -64,7 +64,7 @@ namespace PermanentCreativeShock
 			// Most likely impossible if the lowest Shimmer is below the highest temple
 			// There is some nuance here, since the Shimmer does not need to be at the very highest point,
 			// but in practice only the ceiling of the Jungle Temple can be entered via Shimmer
-			if (highestShimmerY < highestLihzahrdBrickY)
+			if (highestShimmerY > highestLihzahrdBrickY)
 			{
 				ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(
 					"The Jungle Temple is above the Aether biome. " + (-highestLihzahrdBrickY).ToString() + " vs " + (-highestShimmerY).ToString()
