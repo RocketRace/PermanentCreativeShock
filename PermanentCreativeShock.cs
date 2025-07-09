@@ -43,36 +43,37 @@ namespace PermanentCreativeShock
 		{
 			// Find the highest Lihzard Brick tile in the world,
 			// and the highest Shimmer liquid in the world.
-			int maxLihzahrdBrickY = Int32.MinValue;
-			int maxShimmerY = Int32.MinValue;
+			int highestLihzahrdBrickY = Int32.MaxValue;
+			int highestShimmerY = Int32.MaxValue;
 			for (int x = 0; x < Main.maxTilesX; x++)
 			{
 				for (int y = 0; y < Main.maxTilesY; y++)
 				{
 					Tile tile = Main.tile[x, y];
-					if (tile.HasTile && tile.TileType == TileID.LihzahrdBrick && y > maxLihzahrdBrickY)
+					// note: y=0 is the top of the world
+					if (tile.HasTile && tile.TileType == TileID.LihzahrdBrick && y < highestLihzahrdBrickY)
 					{
-						maxLihzahrdBrickY = y;
+						highestLihzahrdBrickY = y;
 					}
-					if (tile.LiquidAmount > 0 && tile.LiquidType == LiquidID.Shimmer && y > maxShimmerY)
+					if (tile.LiquidAmount > 0 && tile.LiquidType == LiquidID.Shimmer && y > highestShimmerY)
 					{
-						maxShimmerY = y;
+						highestShimmerY = y;
 					}
 				}
 			}
 			// Most likely impossible if the lowest Shimmer is below the highest temple
 			// There is some nuance here, since the Shimmer does not need to be at the very highest point,
 			// but in practice only the ceiling of the Jungle Temple can be entered via Shimmer
-			if (maxShimmerY < maxLihzahrdBrickY)
+			if (highestShimmerY < highestLihzahrdBrickY)
 			{
 				ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(
-					"The Jungle Temple is above the Aether biome. " + maxLihzahrdBrickY.ToString() + " vs " + maxShimmerY.ToString()
+					"The Jungle Temple is above the Aether biome. " + (-highestLihzahrdBrickY).ToString() + " vs " + (-highestShimmerY).ToString()
 				), Color.Red);
 			}
 			else
 			{
 				ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(
-					"The Jungle Temple is below the Aether biome. " + maxLihzahrdBrickY.ToString() + " vs " + maxShimmerY.ToString()
+					"The Jungle Temple is below the Aether biome. " + (-highestLihzahrdBrickY).ToString() + " vs " + (-highestShimmerY).ToString()
 				), Color.Green);
 			}
 		}
