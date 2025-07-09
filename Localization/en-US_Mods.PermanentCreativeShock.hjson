@@ -1,2 +1,15 @@
-# This file will automatically update with entries for new content after a build and reload.
+Configs: {
+	TempleEntraceConfig: {
+		DisplayName: Temple Entrace Config
 
+		DisableVolcanoes: {
+			Label: Check for jungle temple entrance
+			Tooltip: ""
+		}
+
+		CheckJungleTempleEntrace: {
+			Label: Check for jungle temple entrance
+			Tooltip: ""
+		}
+	}
+}

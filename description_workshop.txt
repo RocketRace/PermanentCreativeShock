@@ -1,1 +1,3 @@
-This description will show up on the steam page, check out https://steamcommunity.com/comment/Guide/formattinghelp.
+Adds the "Creative Shock" debuff to the player permanently.
+
+With a command, this mod can also check whether a world's Jungle Temple requires entry using the Rod of Discord or whether it is possible to enter using Shimmer.
