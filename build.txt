@@ -1,0 +1,3 @@
+displayName = Permanent Creative Shock
+author = RocketRace
+version = 0.1
