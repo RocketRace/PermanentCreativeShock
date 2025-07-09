@@ -65,11 +65,11 @@ namespace PermanentCreativeShock
 			// but in practice only the ceiling of the Jungle Temple can be entered via Shimmer
 			if (maxShimmerY < maxLihzahrdBrickY)
 			{
-				ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Jungle Temple is below the Aether biome."), Color.Red);
+				ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Jungle Temple is above the Aether biome."), Color.Red);
 			}
 			else
 			{
-				ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Jungle Temple is above the Aether biome."), Color.Green);
+				ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("The Jungle Temple is below the Aether biome."), Color.Green);
 			}
 		}
 	}
